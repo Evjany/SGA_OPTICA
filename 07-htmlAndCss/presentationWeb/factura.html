@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">S.G.A Óptica</h1>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="carrito.html" class="nav-link">Carrito <span id="cart-count" class="cart-badge">0</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="citas.html" class="nav-link">Mis Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link">Registro</a>
+                </li>
+                <li class="nav-item">
+                    <a href="productos.html" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a href="factura.html" class="nav-link active">Facturación</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Generar Factura</h1>
+            <button class="btn btn-primary">Nueva Factura</button>
+        </div>
+
+        <div class="invoice-container">
+            <div class="invoice-header">
+                <div class="company-info">
+    <h2>S.G.A Óptica</h2>
+    <p>Dirección: Av. Óptica 123, Centro</p>
+    <p>Teléfono: (555) 123-4567</p>
+    <p>Email: info@sgaoptica.com</p>
+</div>
+                <div class="invoice-details">
+                    <h3>Factura #001</h3>
+                    <p>Fecha: <input type="date" value="2024-01-15"></p>
+                    <p>Cliente: <input type="text" placeholder="Nombre del cliente"></p>
+                </div>
+            </div>
+
+            <div class="add-product-section">
+                <h3>Agregar Producto</h3>
+                <div class="product-form">
+                    <select id="producto-select">
+    <option value="">Seleccionar producto</option>
+    <option value="rayban" data-price="149.99">Gafas Ray-Ban Classic - $149.99</option>
+    <option value="lectura" data-price="89.99">Gafas de Lectura Premium - $89.99</option>
+    <option value="progresivas" data-price="199.99">Gafas Progresivas Zeiss - $199.99</option>
+    <option value="oakley" data-price="129.99">Gafas Oakley Deportivas - $129.99</option>
+    <option value="lentes-diarios" data-price="29.99">Lentes de Contacto Diarios - $29.99</option>
+    <option value="lentes-mensuales" data-price="45.99">Lentes de Contacto Mensuales - $45.99</option>
+    <option value="estuche" data-price="15.99">Estuche Premium para Gafas - $15.99</option>
+    <option value="solucion" data-price="24.99">Solución Multipropósito - $24.99</option>
+</select>
+                    <input type="number" id="cantidad-input" placeholder="Cantidad" min="1" value="1">
+                    <button type="button" class="btn btn-secondary" onclick="agregarProducto()">Agregar</button>
+                </div>
+            </div>
+
+            <div class="invoice-table">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio Unitario</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productos-factura">
+                        <tr>
+    <td>Gafas Ray-Ban Classic</td>
+    <td>$149.99</td>
+    <td>1</td>
+    <td>$149.99</td>
+    <td><button class="btn-action btn-delete" onclick="eliminarFila(this)">Eliminar</button></td>
+</tr>
+<tr>
+    <td>Lentes de Contacto Diarios</td>
+    <td>$29.99</td>
+    <td>2</td>
+    <td>$59.98</td>
+    <td><button class="btn-action btn-delete" onclick="eliminarFila(this)">Eliminar</button></td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="invoice-totals">
+                <div class="totals-section">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$209.97</span>
+                    </div>
+                    <div class="total-row">
+                        <span>IVA (16%):</span>
+                        <span id="iva">$33.60</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total:</span>
+                        <span id="total">$253.56</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoice-actions">
+                <button class="btn btn-primary">Generar PDF</button>
+                <button class="btn btn-secondary">Imprimir</button>
+                <button class="btn btn-outline">Guardar Borrador</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function agregarProducto() {
+            const select = document.getElementById('producto-select');
+            const cantidadInput = document.getElementById('cantidad-input');
+            const tbody = document.getElementById('productos-factura');
+            
+            if (select.value && cantidadInput.value) {
+                const option = select.options[select.selectedIndex];
+                const precio = parseFloat(option.dataset.price);
+                const cantidad = parseInt(cantidadInput.value);
+                const subtotal = precio * cantidad;
+                
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${option.text.split(' - ')[0]}</td>
+                    <td>$${precio.toFixed(2)}</td>
+                    <td>${cantidad}</td>
+                    <td>$${subtotal.toFixed(2)}</td>
+                    <td><button class="btn-action btn-delete" onclick="eliminarFila(this)">Eliminar</button></td>
+                `;
+                
+                calcularTotales();
+                select.value = '';
+                cantidadInput.value = '1';
+            }
+        }
+        
+        function eliminarFila(btn) {
+            btn.closest('tr').remove();
+            calcularTotales();
+        }
+        
+        function calcularTotales() {
+            const rows = document.querySelectorAll('#productos-factura tr');
+            let subtotal = 0;
+            
+            rows.forEach(row => {
+                const subtotalCell = row.cells[3].textContent;
+                subtotal += parseFloat(subtotalCell.replace('$', ''));
+            });
+            
+            const iva = subtotal * 0.16;
+            const total = subtotal + iva;
+            
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('iva').textContent = `$${iva.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+        
+        // Calcular totales al cargar la página
+        window.onload = function() {
+            calcularTotales();
+        };
+    </script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

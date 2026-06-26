@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.G.A Óptica - Tienda Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">S.G.A Óptica</h1>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="carrito.html" class="nav-link">Carrito <span id="cart-count" class="cart-badge">0</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="citas.html" class="nav-link">Mis Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link">Registro</a>
+                </li>
+                <li class="nav-item">
+                    <a href="productos.html" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a href="factura.html" class="nav-link">Facturación</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="store-header">
+            <h1>S.G.A Óptica - Tu Visión, Nuestra Pasión</h1>
+            <p>Encuentra los mejores productos para el cuidado de tu visión</p>
+        </div>
+
+        <div class="store-filters">
+            <div class="filter-section">
+                <label for="category-filter">Categoría:</label>
+                <select id="category-filter" onchange="filterProducts()">
+                    <option value="all">Todas las categorías</option>
+                    <option value="gafas">Gafas</option>
+                    <option value="lentes">Lentes de Contacto</option>
+                    <option value="accesorios">Accesorios</option>
+                    <option value="cuidado">Cuidado Ocular</option>
+                </select>
+            </div>
+            <div class="filter-section">
+                <label for="price-filter">Precio:</label>
+                <select id="price-filter" onchange="filterProducts()">
+                    <option value="all">Todos los precios</option>
+                    <option value="0-50">$0 - $50</option>
+                    <option value="50-100">$50 - $100</option>
+                    <option value="100-200">$100 - $200</option>
+                    <option value="200+">$200+</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-store-grid" id="products-container">
+            <!-- Gafas -->
+            <div class="store-product-card" data-category="gafas" data-price="149.99">
+                <img src="https://via.placeholder.com/300x200?text=Gafas+Ray-Ban" alt="Gafas Ray-Ban" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Gafas Ray-Ban Classic</h3>
+                    <p class="store-product-description">Gafas de sol clásicas con protección UV400</p>
+                    <p class="store-product-price">$149.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(1, 'Gafas Ray-Ban Classic', 149.99, 'https://via.placeholder.com/300x200?text=Gafas+Ray-Ban')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="gafas" data-price="89.99">
+                <img src="https://via.placeholder.com/300x200?text=Gafas+Lectura" alt="Gafas de Lectura" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Gafas de Lectura Premium</h3>
+                    <p class="store-product-description">Gafas para lectura con lentes antirreflejantes</p>
+                    <p class="store-product-price">$89.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(2, 'Gafas de Lectura Premium', 89.99, 'https://via.placeholder.com/300x200?text=Gafas+Lectura')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="gafas" data-price="199.99">
+                <img src="https://via.placeholder.com/300x200?text=Gafas+Progresivas" alt="Gafas Progresivas" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Gafas Progresivas Zeiss</h3>
+                    <p class="store-product-description">Lentes progresivos de alta calidad</p>
+                    <p class="store-product-price">$199.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(3, 'Gafas Progresivas Zeiss', 199.99, 'https://via.placeholder.com/300x200?text=Gafas+Progresivas')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="gafas" data-price="129.99">
+                <img src="https://via.placeholder.com/300x200?text=Gafas+Oakley" alt="Gafas Oakley" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Gafas Oakley Deportivas</h3>
+                    <p class="store-product-description">Perfectas para actividades deportivas</p>
+                    <p class="store-product-price">$129.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(11, 'Gafas Oakley Deportivas', 129.99, 'https://via.placeholder.com/300x200?text=Gafas+Oakley')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lentes de Contacto -->
+            <div class="store-product-card" data-category="lentes" data-price="29.99">
+                <img src="https://via.placeholder.com/300x200?text=Lentes+Diarios" alt="Lentes de Contacto Diarios" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Lentes de Contacto Diarios</h3>
+                    <p class="store-product-description">Caja de 30 lentes desechables diarios</p>
+                    <p class="store-product-price">$29.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(4, 'Lentes de Contacto Diarios', 29.99, 'https://via.placeholder.com/300x200?text=Lentes+Diarios')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="lentes" data-price="45.99">
+                <img src="https://via.placeholder.com/300x200?text=Lentes+Mensuales" alt="Lentes de Contacto Mensuales" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Lentes de Contacto Mensuales</h3>
+                    <p class="store-product-description">Pack de 6 lentes mensuales de silicona</p>
+                    <p class="store-product-price">$45.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(5, 'Lentes de Contacto Mensuales', 45.99, 'https://via.placeholder.com/300x200?text=Lentes+Mensuales')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accesorios -->
+            <div class="store-product-card" data-category="accesorios" data-price="15.99">
+                <img src="https://via.placeholder.com/300x200?text=Estuche+Gafas" alt="Estuche para Gafas" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Estuche Premium para Gafas</h3>
+                    <p class="store-product-description">Estuche rígido con forro de microfibra</p>
+                    <p class="store-product-price">$15.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(6, 'Estuche Premium para Gafas', 15.99, 'https://via.placeholder.com/300x200?text=Estuche+Gafas')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="accesorios" data-price="8.99">
+                <img src="https://via.placeholder.com/300x200?text=Paño+Microfibra" alt="Paño de Microfibra" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Paño de Microfibra</h3>
+                    <p class="store-product-description">Pack de 3 paños para limpieza de lentes</p>
+                    <p class="store-product-price">$8.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(7, 'Paño de Microfibra', 8.99, 'https://via.placeholder.com/300x200?text=Paño+Microfibra')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="accesorios" data-price="12.99">
+                <img src="https://via.placeholder.com/300x200?text=Cadena+Gafas" alt="Cadena para Gafas" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Cadena Elegante para Gafas</h3>
+                    <p class="store-product-description">Cadena ajustable de acero inoxidable</p>
+                    <p class="store-product-price">$12.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(8, 'Cadena Elegante para Gafas', 12.99, 'https://via.placeholder.com/300x200?text=Cadena+Gafas')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuidado Ocular -->
+            <div class="store-product-card" data-category="cuidado" data-price="18.99">
+                <img src="https://via.placeholder.com/300x200?text=Gotas+Oculares" alt="Gotas Lubricantes" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Gotas Lubricantes Oculares</h3>
+                    <p class="store-product-description">Alivio para ojos secos y cansados</p>
+                    <p class="store-product-price">$18.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(9, 'Gotas Lubricantes Oculares', 18.99, 'https://via.placeholder.com/300x200?text=Gotas+Oculares')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-product-card" data-category="cuidado" data-price="24.99">
+                <img src="https://via.placeholder.com/300x200?text=Solucion+Lentes" alt="Solución para Lentes" class="store-product-image">
+                <div class="store-product-info">
+                    <h3>Solución Multipropósito</h3>
+                    <p class="store-product-description">Limpieza y desinfección para lentes de contacto</p>
+                    <p class="store-product-price">$24.99</p>
+                    <div class="store-product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(10, 'Solución Multipropósito', 24.99, 'https://via.placeholder.com/300x200?text=Solucion+Lentes')">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+    <script>
+        function filterProducts() {
+            const categoryFilter = document.getElementById('category-filter').value;
+            const priceFilter = document.getElementById('price-filter').value;
+            const products = document.querySelectorAll('.store-product-card');
+
+            products.forEach(product => {
+                let showProduct = true;
+
+                // Filter by category
+                if (categoryFilter !== 'all') {
+                    if (product.dataset.category !== categoryFilter) {
+                        showProduct = false;
+                    }
+                }
+
+                // Filter by price
+                if (priceFilter !== 'all') {
+                    const price = parseFloat(product.dataset.price);
+                    switch (priceFilter) {
+                        case '0-50':
+                            if (price > 50) showProduct = false;
+                            break;
+                        case '50-100':
+                            if (price < 50 || price > 100) showProduct = false;
+                            break;
+                        case '100-200':
+                            if (price < 100 || price > 200) showProduct = false;
+                            break;
+                        case '200+':
+                            if (price < 200) showProduct = false;
+                            break;
+                    }
+                }
+
+                product.style.display = showProduct ? 'block' : 'none';
+            });
+        }
+
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
