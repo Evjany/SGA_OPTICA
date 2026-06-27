@@ -10,7 +10,7 @@ En un entorno donde la digitalización es una necesidad para la competitividad, 
 ¿Cómo implementar un sistema de información web que permita gestionar citas, ventas de productos ópticos y consultas administrativas internas de forma organizada, automatizada y accesible tanto para los usuarios como para el personal de la óptica Unidad Visual?
 
 ## Objetivo general
-Diseñar e implementar un sistema de información web y una aplicación móvil para optimizar la gestión de la óptica. El componente web centraliza las consultas administrativas, el control de inventario, la gestión operativa interna y la programación de citas optométricas. Por su parte, la aplicación móvil optimiza la experiencia del usuario final al permitir la compra ágil de productos ópticos, mejorando así la eficiencia operativa y la fidelización del cliente.
+Diseñar e implementar un sistema de información web y una aplicación móvil para optimizar procesos. El componente web centraliza las consultas administrativas, el control de inventario, la gestión operativa interna y la programación de citas optométricas. Por su parte, la aplicación móvil optimiza la experiencia del usuario final al permitir la compra ágil de productos ópticos, mejorando así la eficiencia operativa y la fidelización del cliente.
 ## Objetivos especí­ficos
 1. Desarrollar el módulo de citas, con su interfaz, tablas asociadas y pruebas funcionales.
 2. Implementar el módulo de ventas que incluya catálogo digital, carrito de compras, pagos en línea y pruebas correspondientes.
