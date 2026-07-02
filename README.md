@@ -10,9 +10,8 @@ En un entorno donde la digitalización es una necesidad para la competitividad, 
 ¿Cómo implementar un sistema de información web que permita gestionar citas, ventas de productos ópticos y consultas administrativas internas de forma organizada, automatizada y accesible tanto para los usuarios como para el personal de la óptica Unidad Visual?
 
 ## Objetivo general
-Diseñar e implementar un sistema de información web que apoye la gestión de citas optométricas, la venta de productos ópticos y las consultas administrativas de inventario, optimizando la experiencia del usuario y mejorando la eficiencia operativa de la óptica.
+Diseñar e implementar un sistema de información web y una aplicación móvil para optimizar procesos. El componente web centraliza las consultas administrativas, el control de inventario, la gestión operativa interna y la programación de citas optométricas. Por su parte, la aplicación móvil optimiza la experiencia del usuario final al permitir la compra ágil de productos ópticos, mejorando así la eficiencia operativa y la fidelización del cliente.
 ## Objetivos especí­ficos
-
 1. Desarrollar el módulo de citas, con su interfaz, tablas asociadas y pruebas funcionales.
 2. Implementar el módulo de ventas que incluya catálogo digital, carrito de compras, pagos en línea y pruebas correspondientes.
 3. Construir el módulo administrativo para consulta de inventario, gestión de productos y visualización de citas.
@@ -20,7 +19,7 @@ Diseñar e implementar un sistema de información web que apoye la gestión de c
 5. Realizar pruebas funcionales e integrales para validar el correcto funcionamiento de cada módulo del sistema
 
 # Alcance del proyecto 
-
+Agendamiento de citas con disponibilidad en tiempo real. Envío automático de recordatorios y confirmaciones. Gestión de un catálogo digital de productos. Registro de compras, procesamiento de pagos y gestión de pedidos. Consulta y actualización de inventario para uso administrativo. Roles diferenciados para cliente, empleado y administrador.
 ## Requisitos funcionales:
 Agendamiento de citas con disponibilidad en tiempo real.
 Envío automático de recordatorios y confirmaciones.
